@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.Beginner", "Mvc.Study.Beginner\Mvc.Study.Beginner.csproj", "{FD7730D8-1FD5-4133-BB79-6FDEDDDE4350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.Domain", "Mvc.Study.Domain\Mvc.Study.Domain.csproj", "{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{FD7730D8-1FD5-4133-BB79-6FDEDDDE4350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD7730D8-1FD5-4133-BB79-6FDEDDDE4350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD7730D8-1FD5-4133-BB79-6FDEDDDE4350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

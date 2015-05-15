@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Mvc.Study.Domain;
 
 namespace Mvc.Study.Beginner
 {
@@ -16,9 +19,34 @@ namespace Mvc.Study.Beginner
         {
             AreaRegistration.RegisterAllAreas();
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+	        InitDatabase();
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
+		private void InitDatabase()
+		{
+			Database.SetInitializer(new MigrateDatabaseToLatestVersion<TestDbContext, TestMigrationsConfiguration>());
+
+			using (var context = new TestDbContext())
+			{
+				context.Database.Initialize(false);
+			}
+		}
+
+		public sealed class TestMigrationsConfiguration : DbMigrationsConfiguration<TestDbContext>
+		{
+			public TestMigrationsConfiguration()
+			{
+				AutomaticMigrationsEnabled = true;
+				AutomaticMigrationDataLossAllowed = true;
+			}
+
+			protected override void Seed(TestDbContext context)
+			{
+
+			}
+		}
     }
 }
