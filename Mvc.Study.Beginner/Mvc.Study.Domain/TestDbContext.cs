@@ -15,6 +15,6 @@ namespace Mvc.Study.Domain
 		{
 		}
 
-		public DbSet<Page> Users { get; set; }
+		public DbSet<Page> Pages { get; set; }
 	}
 }
