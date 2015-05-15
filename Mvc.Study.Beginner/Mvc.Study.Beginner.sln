@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.Beginner", "Mvc.Study.Beginner\Mvc.Study.Beginner.csproj", "{FD7730D8-1FD5-4133-BB79-6FDEDDDE4350}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.WebUI", "Mvc.Study.WebUI\Mvc.Study.WebUI.csproj", "{FD7730D8-1FD5-4133-BB79-6FDEDDDE4350}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.Domain", "Mvc.Study.Domain\Mvc.Study.Domain.csproj", "{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}"
 EndProject
