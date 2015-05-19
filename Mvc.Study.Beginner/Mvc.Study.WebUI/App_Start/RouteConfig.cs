@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Mvc.Study.Beginner
@@ -14,10 +10,41 @@ namespace Mvc.Study.Beginner
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Page",
+                url: "Page/{pageId}",
+                defaults: new
+                    {
+                        controller = "PageContent",
+                        action = "Index"
+                    }
+                );
+            routes.MapRoute(
+                name: "PageContent",
+                url: "PageContent/Index",
+                defaults: new
+                {
+                    controller = "PageContent",
+                    action = "Index"
+                }
+                );
+            routes.MapRoute(
+                name: "Menu",
+                url: "Menu/Index",
+                defaults: new
+                    {
+                        controller = "Menu",
+                        action = "Index"
+                    }
+                );
+            routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                url: string.Empty,
+                defaults: new
+                    {
+                        controller = "Home",
+                        action = "Index"
+                    }
+                );
         }
     }
 }
