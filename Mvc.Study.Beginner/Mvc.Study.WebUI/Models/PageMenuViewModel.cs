@@ -1,5 +1,4 @@
 ﻿using System;
-using Mvc.Study.Domain.Model;
 
 namespace Mvc.Study.Beginner
 {
@@ -11,11 +10,11 @@ namespace Mvc.Study.Beginner
         /// <summary>
         /// Страницы
         /// </summary>
-        public Page[] Pages { get; set; }
+        public PageMenuItemViewModel[] Items { get; set; }
 
         /// <summary>
         /// Идентификатор выбраной страницы
         /// </summary>
-        public Guid? SelectedPageId { get; set; }
+        public Guid? SelectedItemId { get; set; }
     }
 }

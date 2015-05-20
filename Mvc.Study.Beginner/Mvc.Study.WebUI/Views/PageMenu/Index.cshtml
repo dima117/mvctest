@@ -2,12 +2,12 @@
 
 <ul class="nav nav-pills">
 
-    @foreach (var page in Model.Pages)
+    @foreach (var item in Model.Items)
     {
         var cssNames = new List<string>();
 
         // Выбраная страница
-        if (page.Id == Model.SelectedPageId)
+        if (item.Id == Model.SelectedItemId)
         {
             cssNames.Add("active");
         }
@@ -16,7 +16,7 @@
                            ? string.Format("class=\"{0}\"", string.Join(" ", cssNames))
                            : string.Empty;
         
-        <li @Html.Raw(cssClass)><a href="@Url.RouteUrl("Page", new { pageId = page.Id })">@page.Title</a></li>
+        <li @Html.Raw(cssClass)><a href="@Url.RouteUrl("Page", new { pageId = item.Id })">@item.Title</a></li>
     }
 
 </ul>

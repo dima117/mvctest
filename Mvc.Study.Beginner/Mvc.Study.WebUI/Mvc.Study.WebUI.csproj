@@ -72,8 +72,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PageMenuItemViewModel.cs" />
     <Compile Include="Models\PageMenuViewModel.cs" />
     <Compile Include="Models\PageContentViewModel.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
