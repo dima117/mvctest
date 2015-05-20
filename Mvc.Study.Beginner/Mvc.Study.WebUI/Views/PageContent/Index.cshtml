@@ -1,9 +1,15 @@
-﻿@model Mvc.Study.Beginner.PageContentViewModel
+﻿@model Mvc.Study.Beginner.PageViewModel
 
 <div>
-    <h1>@Model.Page.PageTitle</h1>
+    <h1>@Model.Title</h1>
 </div>
 
 <div>
-    @Html.Raw(Model.Page.PageContent)
+    @Html.Raw(Model.Html)
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.x-pagemenu li[data-pageid="@Model.Id"]').addClass('active');
+    });
+</script>

@@ -15,14 +15,11 @@ namespace Mvc.Study.Beginner.Controllers
             var dbPage = getPage(pageId);
 
             // Модель
-            var model = new PageContentViewModel
+            var model = new PageViewModel
                 {
-                    Page = new PageViewModel
-                        {
-                            PageId = dbPage.Id,
-                            PageTitle = dbPage.Title,
-                            PageContent = dbPage.Content
-                        }
+                    Id = dbPage.Id,
+                    Title = dbPage.Title,
+                    Html = dbPage.Content
                 };
 
             return View(model);

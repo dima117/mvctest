@@ -10,16 +10,16 @@ namespace Mvc.Study.Beginner
         /// <summary>
         /// Идентификатор страницы
         /// </summary>
-        public Guid PageId { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Название страницы
         /// </summary>
-        public string PageTitle { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Содержимое страницы
         /// </summary>
-        public string PageContent { get; set; }
+        public string Html { get; set; }
     }
 }
