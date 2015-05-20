@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.WebUI", "Mvc.Study.WebUI\Mvc.Study.WebUI.csproj", "{FD7730D8-1FD5-4133-BB79-6FDEDDDE4350}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.Domain", "Mvc.Study.Domain\Mvc.Study.Domain.csproj", "{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Study.Common", "Mvc.Study.Common\Mvc.Study.Common.csproj", "{70762D3A-B2CF-4F5B-B681-4B8BC1D80CBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +21,10 @@ Global
 		{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8CD74EC-2C1F-48A9-BAE4-670AAA6DEFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70762D3A-B2CF-4F5B-B681-4B8BC1D80CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70762D3A-B2CF-4F5B-B681-4B8BC1D80CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70762D3A-B2CF-4F5B-B681-4B8BC1D80CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70762D3A-B2CF-4F5B-B681-4B8BC1D80CBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

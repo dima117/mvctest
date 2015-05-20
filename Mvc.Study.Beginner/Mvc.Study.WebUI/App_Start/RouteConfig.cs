@@ -14,7 +14,7 @@ namespace Mvc.Study.Beginner
                 url: "Page/{pageId}",
                 defaults: new
                     {
-                        controller = "PageContent",
+                        controller = "Home",
                         action = "Index"
                     }
                 );
@@ -32,7 +32,7 @@ namespace Mvc.Study.Beginner
                 url: "Menu/Index",
                 defaults: new
                     {
-                        controller = "Menu",
+                        controller = "PageMenu",
                         action = "Index"
                     }
                 );

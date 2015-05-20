@@ -1,0 +1,22 @@
+﻿@model Mvc.Study.Beginner.PageMenuViewModel
+
+<ul class="nav nav-pills">
+
+    @foreach (var page in Model.Pages)
+    {
+        var cssNames = new List<string>();
+
+        // Выбраная страница
+        if (page.Id == Model.SelectedPageId)
+        {
+            cssNames.Add("active");
+        }
+
+        var cssClass = cssNames.Any()
+                           ? string.Format("class=\"{0}\"", string.Join(" ", cssNames))
+                           : string.Empty;
+        
+        <li @Html.Raw(cssClass)><a href="@Url.RouteUrl("Page", new { pageId = page.Id })">@page.Title</a></li>
+    }
+
+</ul>

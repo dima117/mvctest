@@ -1,3 +1,9 @@
-﻿@model Mvc.Study.Beginner.PageContentModel
+﻿@model Mvc.Study.Beginner.PageContentViewModel
 
-@Html.Raw(Model.Page.Content)
+<div>
+    <h1>@Model.Page.Title</h1>
+</div>
+
+<div>
+    @Html.Raw(Model.Page.Content)
+</div>

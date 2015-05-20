@@ -12,7 +12,7 @@ namespace Mvc.Study.Beginner.Controllers
         {
             using (var db = new TestDbContext())
             {
-                var model = new PageContentModel
+                var model = new PageContentViewModel
                     {
                         Page = db.Pages.FirstOrDefault(p => p.Id == pageId) ?? new Page()
                     };
