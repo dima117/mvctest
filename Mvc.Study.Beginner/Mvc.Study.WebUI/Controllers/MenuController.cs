@@ -4,21 +4,26 @@ using Mvc.Study.Domain;
 
 namespace Mvc.Study.Beginner.Controllers
 {
-    public class PageMenuController : Controller
+    public class MenuController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        [OutputCache(Duration = 600, VaryByParam = "none")]
+        public ActionResult MenuItems()
         {
             return View(getItems());
         }
 
-        private PageMenuItemViewModel[] getItems()
+        /// <summary>
+        /// Возвращает элементы меню
+        /// </summary>
+        /// <returns></returns>
+        private MenuItemViewModel[] getItems()
         {
             using (var db = new TestDbContext())
             {
                 return db.Pages
                          .Select(
-                             p => new PageMenuItemViewModel
+                             p => new MenuItemViewModel
                                  {
                                      Id = p.Id,
                                      Title = p.Title

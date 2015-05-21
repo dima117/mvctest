@@ -10,30 +10,21 @@ namespace Mvc.Study.Beginner
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Menu",
+                url: "Menu/MenuItems",
+                defaults: new
+                    {
+                        controller = "Menu",
+                        action = "MenuItems"
+                    }
+                );
+            routes.MapRoute(
                 name: "Page",
                 url: "Page/{pageId}",
                 defaults: new
                     {
                         controller = "Home",
-                        action = "Index"
-                    }
-                );
-            routes.MapRoute(
-                name: "PageContent",
-                url: "PageContent/Index",
-                defaults: new
-                {
-                    controller = "PageContent",
-                    action = "Index"
-                }
-                );
-            routes.MapRoute(
-                name: "Menu",
-                url: "Menu/Index",
-                defaults: new
-                    {
-                        controller = "PageMenu",
-                        action = "Index"
+                        action = "ContentPage"
                     }
                 );
             routes.MapRoute(

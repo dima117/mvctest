@@ -18,7 +18,38 @@
     <body>
         
         <div>
-            @RenderBody()
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>
+                        <a href="@Url.RouteUrl("Default")">Main page</a>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Action("MenuItems", "Menu")
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div>
+                        <h1>Left</h1>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Footer</h1>
+                </div>
+            </div>
+
         </div>
 
     </body>

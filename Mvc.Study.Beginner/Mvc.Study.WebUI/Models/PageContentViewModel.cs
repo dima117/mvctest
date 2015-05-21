@@ -5,7 +5,7 @@ namespace Mvc.Study.Beginner
     /// <summary>
     /// Данные страницы
     /// </summary>
-    public class PageViewModel
+    public class PageContentViewModel
     {
         /// <summary>
         /// Идентификатор страницы

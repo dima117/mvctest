@@ -66,14 +66,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\PageContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PageMenuController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\PageMenuItemViewModel.cs" />
-    <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\MenuItemViewModel.cs" />
+    <Compile Include="Models\PageContentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,10 +113,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\PageMenu\Index.cshtml" />
+    <Content Include="Views\Menu\MenuItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\PageContent\Index.cshtml" />
+    <Content Include="Views\Home\ContentPage.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -5,7 +5,7 @@ namespace Mvc.Study.Beginner
     /// <summary>
     /// Эелемент верхнего меню
     /// </summary>
-    public class PageMenuItemViewModel
+    public class MenuItemViewModel
     {
         /// <summary>
         /// Идентификатор страницы

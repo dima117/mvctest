@@ -5,33 +5,4 @@
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-12">
-        <h1>
-            <a href="@Url.RouteUrl("Default")">Header</a>
-        </h1>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        @{ Html.RenderAction("Index", "PageMenu"); }
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-2">
-        <div>
-            <h1>Left</h1>
-        </div>
-    </div>
-    <div class="col-md-10">
-        @{ Html.RenderAction("Index", "PageContent"); }
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        <h1>Footer</h1>
-    </div>
-</div>
+<h1>Default page</h1>
