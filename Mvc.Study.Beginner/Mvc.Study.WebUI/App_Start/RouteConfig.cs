@@ -36,6 +36,16 @@ namespace Mvc.Study.Beginner
                         action = "Index"
                     }
                 );
+
+            routes.MapRoute(
+                name: "Error404",
+                url: "Error404",
+                defaults: new
+                {
+                    controller = "Error",
+                    action = "Error404"
+                }
+                );
         }
     }
 }

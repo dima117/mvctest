@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Mvc.Study.Domain;
 using Mvc.Study.Domain.Model;
@@ -18,14 +19,18 @@ namespace Mvc.Study.Beginner.Controllers
         public ActionResult ContentPage(Guid? pageId)
         {
             // Страница из базы
-            var dbPage = getPage(pageId);
+            var page = getPage(pageId);
+
+            // Если не нашлось страницы
+            if (null == page)
+                throw new HttpException(404, string.Empty);
 
             // Модель
             var model = new PageContentViewModel
                 {
-                    Id = dbPage.Id,
-                    Title = dbPage.Title,
-                    Html = dbPage.Content
+                    Id = page.Id,
+                    Title = page.Title,
+                    Html = page.Content
                 };
 
             return View(model);
@@ -35,7 +40,7 @@ namespace Mvc.Study.Beginner.Controllers
         {
             using (var db = new TestDbContext())
             {
-                return db.Pages.FirstOrDefault(p => p.Id == pageId) ?? new Page();
+                return db.Pages.FirstOrDefault(p => p.Id == pageId);
             }
         }
     }
