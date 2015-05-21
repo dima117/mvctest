@@ -4,7 +4,7 @@
 
     @foreach (var item in Model)
     {
-        <li data-pageid="@item.Id"><a href="@Url.RouteUrl("Page", new { pageId = item.Id })">@item.Title</a></li>
+        <li data-pageid="@item.Id"><a href="@Url.RouteUrl("Page", new { pageName = item.Name })">@item.Title</a></li>
     }
 
 </ul>

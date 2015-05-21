@@ -20,7 +20,7 @@ namespace Mvc.Study.Beginner
                 );
             routes.MapRoute(
                 name: "Page",
-                url: "Page/{pageId}",
+                url: "Page/{pageName}",
                 defaults: new
                     {
                         controller = "Home",

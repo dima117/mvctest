@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mvc.Study.Beginner
 {
@@ -11,6 +12,12 @@ namespace Mvc.Study.Beginner
         /// Идентификатор страницы
         /// </summary>
         public Guid Id { get; set; }
+
+        /// <summary>
+        /// Название страницы
+        /// </summary>
+        [Required]
+        public string Name { get; set; }
 
         /// <summary>
         /// Название страницы

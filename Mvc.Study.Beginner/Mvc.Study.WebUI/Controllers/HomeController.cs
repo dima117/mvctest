@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Mvc.Study.Domain;
-using Mvc.Study.Domain.Model;
 
 namespace Mvc.Study.Beginner.Controllers
 {
@@ -16,10 +15,10 @@ namespace Mvc.Study.Beginner.Controllers
         }
 
         [HttpGet]
-        public ActionResult ContentPage(Guid? pageId)
+        public ActionResult ContentPage(string pageName)
         {
             // Страница из базы
-            var page = getPage(pageId);
+            var page = getPage(pageName);
 
             // Если не нашлось страницы
             if (null == page)
@@ -36,11 +35,11 @@ namespace Mvc.Study.Beginner.Controllers
             return View(model);
         }
 
-        private Page getPage(Guid? pageId)
+        private Page getPage(string pageName)
         {
             using (var db = new TestDbContext())
             {
-                return db.Pages.FirstOrDefault(p => p.Id == pageId);
+                return db.Pages.FirstOrDefault(p => p.Name.Equals(pageName, StringComparison.InvariantCultureIgnoreCase));
             }
         }
     }

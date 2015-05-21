@@ -7,7 +7,7 @@ namespace Mvc.Study.Beginner.Controllers
     public class MenuController : Controller
     {
         [HttpGet]
-        [OutputCache(Duration = 600, VaryByParam = "none")]
+        //[OutputCache(Duration = 600, VaryByParam = "none")]
         public ActionResult MenuItems()
         {
             return View(getItems());
@@ -22,10 +22,12 @@ namespace Mvc.Study.Beginner.Controllers
             using (var db = new TestDbContext())
             {
                 return db.Pages
+                         .OrderBy(p => p.OrderId)
                          .Select(
                              p => new MenuItemViewModel
                                  {
                                      Id = p.Id,
+                                     Name = p.Name.ToLower(),
                                      Title = p.Title
                                  })
                          .ToArray();
