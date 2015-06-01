@@ -3,9 +3,9 @@
 namespace Mvc.Study.Beginner
 {
     /// <summary>
-    /// Эелемент верхнего меню
+    /// Данные страницы
     /// </summary>
-    public class MenuItemViewModel
+    public class CatalogItemViewModel
     {
         /// <summary>
         /// Идентификатор страницы

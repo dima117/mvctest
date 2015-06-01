@@ -9,8 +9,9 @@ namespace Mvc.Study.Beginner
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Pages
             routes.MapRoute(
-                name: "Menu",
+                name: "MenuItems",
                 url: "Menu/MenuItems",
                 defaults: new
                     {
@@ -27,6 +28,28 @@ namespace Mvc.Study.Beginner
                         action = "ContentPage"
                     }
                 );
+
+            // Catalog
+            routes.MapRoute(
+                name: "CatalogItems",
+                url: "Catalog/CatalogItems",
+                defaults: new
+                    {
+                        controller = "Catalog",
+                        action = "CatalogItems"
+                    }
+                );
+            routes.MapRoute(
+                name: "Catalog",
+                url: "Catalog/{pageName}",
+                defaults: new
+                    {
+                        controller = "Catalog",
+                        action = "CatalogPage"
+                    }
+                );
+
+            // Defaults
             routes.MapRoute(
                 name: "Default",
                 url: string.Empty,

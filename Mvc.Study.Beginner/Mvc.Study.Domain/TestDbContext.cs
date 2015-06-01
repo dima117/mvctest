@@ -9,6 +9,8 @@ namespace Mvc.Study.Domain
 		{
 		}
 
-		public DbSet<Page> Pages { get; set; }
+		public DbSet<PageContent> Pages { get; set; }
+
+        public DbSet<PageCatalog> Catalog { get; set; }
 	}
 }

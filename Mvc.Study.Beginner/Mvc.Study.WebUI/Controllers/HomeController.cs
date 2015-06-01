@@ -35,7 +35,7 @@ namespace Mvc.Study.Beginner.Controllers
             return View(model);
         }
 
-        private Page getPage(string pageName)
+        private PageContent getPage(string pageName)
         {
             using (var db = new TestDbContext())
             {
