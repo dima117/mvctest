@@ -8,9 +8,11 @@
 
 @Html.Raw(Model.ContentSecondary)
 
+@section _scripts {
 <script type="text/javascript">
 	$(function () {
 
 		$('.x-catalog li[data-pageid="@Model.Id"]').addClass('active');
 	});
 </script>
+}

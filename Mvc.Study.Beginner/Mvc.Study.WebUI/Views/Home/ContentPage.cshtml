@@ -9,8 +9,10 @@
     @Html.Raw(Model.Content)
 </div>
 
+@section _scripts {
 <script type="text/javascript">
     $(document).ready(function() {
         $('.x-pagemenu li[data-pageid="@Model.Id"]').addClass('active');
     });
 </script>
+}
