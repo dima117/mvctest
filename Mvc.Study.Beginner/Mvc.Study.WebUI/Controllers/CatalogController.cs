@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using Mvc.Study.Beginner.Models;
 using Mvc.Study.Domain;
 
@@ -22,15 +23,7 @@ namespace Mvc.Study.Beginner.Controllers
 				    throw new HttpException(404, string.Empty);
 			    }
 
-			    var model = new CatalogSectionModel
-							{
-								Id = section.Id,
-								MenuTitle = section.MenuTitle,
-								ContentPrimary = section.ContentPrimary,
-								ContentSecondary = section.ContentSecondary
-							};
-
-			    return View(model);
+                return View(Mapper.Map<CatalogSectionModel>(section));
 		    }
 	    }
 
@@ -47,15 +40,7 @@ namespace Mvc.Study.Beginner.Controllers
 					throw new HttpException(404, string.Empty);
 				}
 
-				var model = new ProductModel
-				{
-					Id = product.Id,
-					Name = product.Name,
-					Description = product.Description,
-					FullDescription = product.FullDescription
-				};
-
-				return View(model);
+                return View(Mapper.Map<ProductModel>(product));
 			}
         }
     }

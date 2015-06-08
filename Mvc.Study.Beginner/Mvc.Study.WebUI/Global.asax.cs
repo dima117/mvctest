@@ -19,6 +19,7 @@ namespace Mvc.Study.Beginner
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MapperConfig.RegisterMaps();
         }
 
 		private void InitDatabase()

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using Mvc.Study.Beginner.Models;
 using Mvc.Study.Domain;
 
@@ -27,14 +28,7 @@ namespace Mvc.Study.Beginner.Controllers
 					throw new HttpException(404, string.Empty);
 				}
 
-				var model = new ContentPageModel
-				{
-					Id = page.Id,
-					MenuTitle = page.MenuTitle,
-					Content = page.Content
-				};
-
-				return View(model);
+			    return View(Mapper.Map<ContentPageModel>(page));
 			}
         }
     }
