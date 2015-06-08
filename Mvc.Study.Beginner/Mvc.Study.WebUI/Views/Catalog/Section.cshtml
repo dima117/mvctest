@@ -1,0 +1,16 @@
+﻿@model Mvc.Study.Beginner.Models.CatalogSectionModel
+@{
+	ViewBag.Title = Model.MenuTitle;
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Raw(Model.ContentPrimary)
+
+@Html.Raw(Model.ContentSecondary)
+
+<script type="text/javascript">
+	$(function () {
+
+		$('.x-catalog li[data-pageid="@Model.Id"]').addClass('active');
+	});
+</script>

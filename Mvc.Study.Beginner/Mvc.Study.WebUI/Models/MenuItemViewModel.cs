@@ -1,25 +1,20 @@
 ﻿using System;
 
-namespace Mvc.Study.Beginner
+namespace Mvc.Study.Beginner.Models
 {
-    /// <summary>
-    /// Эелемент верхнего меню
-    /// </summary>
-    public class MenuItemViewModel
+    public class MenuItemModel
     {
-        /// <summary>
-        /// Идентификатор страницы
-        /// </summary>
-        public Guid Id { get; set; }
+	    public MenuItemModel(Guid id, string menuTitle, string urlCode)
+	    {
+		    Id = id;
+		    MenuTitle = menuTitle;
+		    UrlCode = urlCode;
+	    }
 
-        /// <summary>
-        /// Название страницы
-        /// </summary>
-        public string Name { get; set; }
+	    public Guid Id { get; set; }
 
-        /// <summary>
-        /// Название страницы
-        /// </summary>
-        public string Title { get; set; }
+        public string MenuTitle { get; set; }
+
+        public string UrlCode { get; set; }
     }
 }

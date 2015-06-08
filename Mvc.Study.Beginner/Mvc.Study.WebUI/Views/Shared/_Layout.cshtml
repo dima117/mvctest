@@ -1,54 +1,43 @@
 ﻿<!DOCTYPE html>
-
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<head>
+	<title>@ViewBag.Title</title>
 
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
-        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-        
-        <style type="text/css">
-            div {
-                /*border: solid 1px silver;*/
-            }
-        </style>
-    </head>
-    <body>
-        
-        <div>
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        <a href="@Url.RouteUrl("Default")">Main page</a>
-                    </h1>
-                </div>
-            </div>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
 
-            <div class="row">
-                <div class="col-md-12">
-                    @Html.Action("MenuItems", "Menu")
-                </div>
-            </div>
+	<div class="container">
 
-            <div class="row">
-                <div class="col-md-2">
-                    @Html.Action("CatalogItems", "Catalog")
-                </div>
-                <div class="col-md-10">
-                    @RenderBody()
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Footer</h1>
-                </div>
-            </div>
-
-        </div>
-
-    </body>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>
+					<a href="@Url.Action("Index", "Home")">Main page</a>
+				</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				@Html.Action("MenuItems", "Common")
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				@Html.Action("CatalogSections", "Common")
+			</div>
+			<div class="col-md-10">
+				@RenderBody()
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Footer</h1>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

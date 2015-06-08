@@ -1,0 +1,10 @@
+﻿@model Mvc.Study.Beginner.Models.MenuItemModel[]
+
+<ul class="nav nav-pills nav-stacked x-catalog">
+
+    @foreach (var item in Model)
+    {
+        <li data-pageid="@item.Id"><a href="@Url.Action("Section", "Catalog", new { urlCode = item.UrlCode })">@item.MenuTitle</a></li>
+    }
+
+</ul>

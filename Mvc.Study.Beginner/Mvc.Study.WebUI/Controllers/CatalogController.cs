@@ -2,67 +2,61 @@
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Mvc.Study.Beginner.Models;
 using Mvc.Study.Domain;
 
 namespace Mvc.Study.Beginner.Controllers
 {
     public class CatalogController : Controller
     {
-        [HttpGet]
-        public ActionResult CatalogItems()
+	    [HttpGet]
+	    public ActionResult Section(string urlCode)
+	    {
+		    using (var db = new TestDbContext())
+		    {
+			    var section = db.CatalogSections.FirstOrDefault(p => p.UrlCode == urlCode);
+
+			    // 404
+			    if (null == section)
+			    {
+				    throw new HttpException(404, string.Empty);
+			    }
+
+			    var model = new CatalogSectionModel
+							{
+								Id = section.Id,
+								MenuTitle = section.MenuTitle,
+								ContentPrimary = section.ContentPrimary,
+								ContentSecondary = section.ContentSecondary
+							};
+
+			    return View(model);
+		    }
+	    }
+
+	    [HttpGet]
+		public ActionResult Product(string urlCode, Guid id)
         {
-            return View(getItems());
-        }
+			using (var db = new TestDbContext())
+			{
+				var product = db.Products.FirstOrDefault(p => p.Id == id &&  p.CatalogSection.UrlCode == urlCode);
 
-        [HttpGet]
-        public ActionResult CatalogPage(string pageName)
-        {
-            // Страница из базы
-            var page = getPage(pageName);
+				// 404
+				if (null == product)
+				{
+					throw new HttpException(404, string.Empty);
+				}
 
-            // Если не нашлось страницы
-            if (null == page)
-                throw new HttpException(404, string.Empty);
+				var model = new ProductModel
+				{
+					Id = product.Id,
+					Name = product.Name,
+					Description = product.Description,
+					FullDescription = product.FullDescription
+				};
 
-            // Модель
-            var model = new PageCatalogViewModel
-                {
-                    Id = page.Id,
-                    Title = page.Title,
-                    HtmlPrimary = page.ContentPrimary,
-                    HtmlSecondary = page.ContentSecondary
-                };
-
-            return View(model);
-        }
-
-        /// <summary>
-        /// Возвращает элементы меню
-        /// </summary>
-        /// <returns></returns>
-        private CatalogItemViewModel[] getItems()
-        {
-            using (var db = new TestDbContext())
-            {
-                return db.Catalog
-                         .OrderBy(p => p.OrderId)
-                         .Select(
-                             p => new CatalogItemViewModel
-                             {
-                                 Id = p.Id,
-                                 Name = p.Name.ToLower(),
-                                 Title = p.Title
-                             })
-                         .ToArray();
-            }
-        }
-
-        private PageCatalog getPage(string pageName)
-        {
-            using (var db = new TestDbContext())
-            {
-                return db.Catalog.FirstOrDefault(p => p.Name.Equals(pageName, StringComparison.InvariantCultureIgnoreCase));
-            }
+				return View(model);
+			}
         }
     }
 }

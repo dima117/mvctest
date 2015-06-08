@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\PageCatalog.cs" />
-    <Compile Include="Model\PageContent.cs" />
+    <Compile Include="Model\CatalogSection.cs" />
+    <Compile Include="Model\ContentPage.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDbContext.cs" />
   </ItemGroup>

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Mvc.Study.Beginner.Models;
 using Mvc.Study.Domain;
 
 namespace Mvc.Study.Beginner.Controllers
@@ -15,32 +15,27 @@ namespace Mvc.Study.Beginner.Controllers
         }
 
         [HttpGet]
-        public ActionResult ContentPage(string pageName)
+		public ActionResult ContentPage(string urlCode)
         {
-            // Страница из базы
-            var page = getPage(pageName);
+			using (var db = new TestDbContext())
+			{
+				var page = db.Pages.FirstOrDefault(p => p.UrlCode == urlCode);
 
-            // Если не нашлось страницы
-            if (null == page)
-                throw new HttpException(404, string.Empty);
+				// 404
+				if (page == null)
+				{
+					throw new HttpException(404, string.Empty);
+				}
 
-            // Модель
-            var model = new PageContentViewModel
-                {
-                    Id = page.Id,
-                    Title = page.Title,
-                    Html = page.Content
-                };
+				var model = new ContentPageModel
+				{
+					Id = page.Id,
+					MenuTitle = page.MenuTitle,
+					Content = page.Content
+				};
 
-            return View(model);
-        }
-
-        private PageContent getPage(string pageName)
-        {
-            using (var db = new TestDbContext())
-            {
-                return db.Pages.FirstOrDefault(p => p.Name.Equals(pageName, StringComparison.InvariantCultureIgnoreCase));
-            }
+				return View(model);
+			}
         }
     }
 }
