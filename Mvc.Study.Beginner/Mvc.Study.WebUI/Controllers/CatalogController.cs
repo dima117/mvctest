@@ -10,7 +10,6 @@ namespace Mvc.Study.Beginner.Controllers
 {
     public class CatalogController : Controller
     {
-	    [HttpGet]
 	    public ActionResult Section(string urlCode)
 	    {
 		    using (var db = new TestDbContext())
@@ -27,7 +26,6 @@ namespace Mvc.Study.Beginner.Controllers
 		    }
 	    }
 
-	    [HttpGet]
 		public ActionResult Product(string urlCode, Guid id)
         {
 			using (var db = new TestDbContext())

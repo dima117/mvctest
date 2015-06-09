@@ -9,13 +9,11 @@ namespace Mvc.Study.Beginner.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
 		public ActionResult ContentPage(string urlCode)
         {
 			using (var db = new TestDbContext())
