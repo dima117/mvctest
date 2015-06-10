@@ -94,17 +94,17 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\MapperConfig.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\ICart.cs" />
-    <Compile Include="Controllers\SessionCartController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Core\CartStorage.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Models\CartModel.cs" />
+    <Compile Include="Models\CartSummaryModel.cs" />
     <Compile Include="Models\CatalogSectionModel.cs" />
     <Compile Include="Models\MenuItemViewModel.cs" />
     <Compile Include="Models\ContentPageModel.cs" />

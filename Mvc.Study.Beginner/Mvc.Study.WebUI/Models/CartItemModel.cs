@@ -7,11 +7,11 @@ namespace Mvc.Study.Beginner
     /// </summary>
     public class CartItemModel
     {
-        public Guid ProductId { get; set; }
+        public Guid Id { get; set; }
 
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
-        public decimal ProductPrice { get; set; }
+        public decimal Price { get; set; }
 
         public int Amount { get; set; }
     }
