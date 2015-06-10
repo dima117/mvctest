@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
-using Mvc.Study.Beginner.Models;
 using Mvc.Study.Domain;
 
 namespace Mvc.Study.Beginner.Controllers
@@ -18,13 +17,11 @@ namespace Mvc.Study.Beginner.Controllers
 
         public ActionResult AddProduct(Guid productId)
         {
-            var product = getProduct(productId);
-
             var cart = _cartStorage.LoadCart();
-            cart.Add(product);
+            cart.Add(getCartItem(productId));
             _cartStorage.SaveCart(cart);
 
-            return new EmptyResult();
+            return Json(cart.GetSummary());
         }
 
         public ActionResult RemoveProduct(Guid productId)
@@ -33,23 +30,21 @@ namespace Mvc.Study.Beginner.Controllers
             cart.Remove(productId);
             _cartStorage.SaveCart(cart);
 
-            return new EmptyResult();
+            return Json(cart.GetSummary());
         }
 
         public ActionResult GetCartSummary()
         {
-            var cartSummary = _cartStorage
-                .LoadCart()
-                .GetSummary();
-            return new EmptyResult();
+            var cart = _cartStorage.LoadCart();
+            return Json(cart.GetSummary());
         }
 
-        private ProductModel getProduct(Guid productId)
+        private CartItemModel getCartItem(Guid productId)
         {
             using (var db = new TestDbContext())
             {
                 var product = db.Products.First(p => p.Id == productId);
-                return Mapper.Map<ProductModel>(product);
+                return Mapper.Map<CartItemModel>(product);
             }
         }
     }

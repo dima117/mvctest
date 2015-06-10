@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
-using Mvc.Study.Beginner.Models;
 
 namespace Mvc.Study.Beginner
 {
@@ -14,13 +12,14 @@ namespace Mvc.Study.Beginner
         private readonly List<CartItemModel> _items =
             new List<CartItemModel>();
 
-        public void Add(ProductModel product)
+        public void Add(CartItemModel cartItem)
         {
-            var cartItem = _items.FirstOrDefault(i => i.Id == product.Id);
-
             if (null == cartItem)
+                return;
+
+            if(_items.All(i => i.Id != cartItem.Id))
             {
-                _items.Add(Mapper.Map<CartItemModel>(product));
+                _items.Add(cartItem);
             }
             else
             {

@@ -9,10 +9,10 @@ namespace Mvc.Study.Beginner
         public static void RegisterMaps()
         {
             Mapper.CreateMap<Product, ProductModel>();
+            Mapper.CreateMap<Product, CartItemModel>();
+
             Mapper.CreateMap<ContentPage, ContentPageModel>();
             Mapper.CreateMap<CatalogSection, CatalogSectionModel>();
-
-            Mapper.CreateMap<ProductModel, CartItemModel>();
         }
     }
 }
