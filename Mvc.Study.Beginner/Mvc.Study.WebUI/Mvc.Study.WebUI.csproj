@@ -117,6 +117,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-2.1.4.min.js" />
     <Content Include="Global.asax" />
