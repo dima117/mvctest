@@ -7,19 +7,22 @@ namespace Mvc.Study.Beginner
     /// <summary>
     /// Корзина покупок
     /// </summary>
+    [Serializable]
     public class CartModel
     {
         private readonly List<CartItemModel> _items =
             new List<CartItemModel>();
 
-        public void Add(CartItemModel cartItem)
+        public void Add(CartItemModel newItem)
         {
-            if (null == cartItem)
+            if (null == newItem)
                 return;
 
-            if(_items.All(i => i.Id != cartItem.Id))
+            var cartItem = _items.FirstOrDefault(i => i.Id != newItem.Id);
+
+            if(null == cartItem)
             {
-                _items.Add(cartItem);
+                _items.Add(newItem);
             }
             else
             {

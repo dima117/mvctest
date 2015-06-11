@@ -8,9 +8,11 @@ namespace Mvc.Study.Beginner
         {
             // Scripts
             bundles.Add(
-				new ScriptBundle("~/Content/js").Include(
-					"~/Content/js/jquery-2.1.4.min.js",
-					"~/Content/js/bootstrap.min.js"));
+                new ScriptBundle("~/Content/js").Include(
+                    "~/Content/js/jquery-2.1.4.min.js",
+                    "~/Content/js/bootstrap.min.js",
+                    "~/Content/js/underscore-min.js",
+                    "~/Content/js/cart.js"));
          
             // CSS
             bundles.Add(

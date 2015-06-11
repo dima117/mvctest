@@ -8,35 +8,35 @@ namespace Mvc.Study.Beginner.Controllers
 {
     public class CartController : Controller
     {
-        private readonly CartStorage _cartStorage;
-
-        public CartController()
+        public JsonResult AddProduct(Guid productId)
         {
-            _cartStorage = new CartStorage(this);
-        }
+            var cartStorage = new CartStorage(Session);
+            var cart = cartStorage.LoadCart();
 
-        public ActionResult AddProduct(Guid productId)
-        {
-            var cart = _cartStorage.LoadCart();
             cart.Add(getCartItem(productId));
-            _cartStorage.SaveCart(cart);
+            cartStorage.SaveCart(cart);
 
-            return Json(cart.GetSummary());
+            return GetCartSummary();
         }
 
-        public ActionResult RemoveProduct(Guid productId)
+        public JsonResult RemoveProduct(Guid productId)
         {
-            var cart = _cartStorage.LoadCart();
+            var cartStorage = new CartStorage(Session);
+            var cart = cartStorage.LoadCart();
+
             cart.Remove(productId);
-            _cartStorage.SaveCart(cart);
+            cartStorage.SaveCart(cart);
 
-            return Json(cart.GetSummary());
+            return GetCartSummary();
         }
 
-        public ActionResult GetCartSummary()
+        public JsonResult GetCartSummary()
         {
-            var cart = _cartStorage.LoadCart();
-            return Json(cart.GetSummary());
+            var cartStorage = new CartStorage(Session);
+            var cart = cartStorage.LoadCart();
+
+            var summary = cart.GetSummary();
+            return Json(summary, JsonRequestBehavior.AllowGet);
         }
 
         private CartItemModel getCartItem(Guid productId)
@@ -44,7 +44,9 @@ namespace Mvc.Study.Beginner.Controllers
             using (var db = new TestDbContext())
             {
                 var product = db.Products.First(p => p.Id == productId);
-                return Mapper.Map<CartItemModel>(product);
+                var cartItem = Mapper.Map<CartItemModel>(product);
+                cartItem.Amount = 1;
+                return cartItem;
             }
         }
     }

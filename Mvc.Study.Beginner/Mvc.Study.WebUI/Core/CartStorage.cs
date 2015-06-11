@@ -1,5 +1,4 @@
 ﻿using System.Web;
-using System.Web.Mvc;
 
 namespace Mvc.Study.Beginner
 {
@@ -7,14 +6,19 @@ namespace Mvc.Study.Beginner
     {
         private readonly HttpSessionStateBase _session;
 
-        public CartStorage(Controller sender)
+        public CartStorage(HttpSessionStateBase session)
         {
-            _session = sender.Session;
+            _session = session;
         }
 
         public CartModel LoadCart()
         {
-            return _session["_CART"] as CartModel ?? new CartModel();
+            var cart = _session["_CART"] as CartModel;
+            if (null == cart)
+            {
+                _session["_CART"] = cart = new CartModel();
+            }
+            return cart;
         }
 
         public void SaveCart(CartModel cart)
