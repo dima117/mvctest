@@ -7,7 +7,6 @@ namespace Mvc.Study.Beginner
     /// <summary>
     /// Корзина покупок
     /// </summary>
-    [Serializable]
     public class CartModel
     {
         private readonly List<CartItemModel> _items =

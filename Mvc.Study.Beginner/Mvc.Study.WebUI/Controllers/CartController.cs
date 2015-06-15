@@ -10,33 +10,47 @@ namespace Mvc.Study.Beginner.Controllers
     {
         public JsonResult AddProduct(Guid productId)
         {
-            var cartStorage = new CartStorage(Session);
-            var cart = cartStorage.LoadCart();
+            var cart = loadCart();
 
             cart.Add(getCartItem(productId));
-            cartStorage.SaveCart(cart);
+            saveCart(cart);
 
             return GetCartSummary();
         }
 
         public JsonResult RemoveProduct(Guid productId)
         {
-            var cartStorage = new CartStorage(Session);
-            var cart = cartStorage.LoadCart();
+            var cart = loadCart();
 
             cart.Remove(productId);
-            cartStorage.SaveCart(cart);
+            saveCart(cart);
 
             return GetCartSummary();
         }
 
         public JsonResult GetCartSummary()
         {
-            var cartStorage = new CartStorage(Session);
-            var cart = cartStorage.LoadCart();
+            var cart = loadCart();
 
             var summary = cart.GetSummary();
             return Json(summary, JsonRequestBehavior.AllowGet);
+        }
+
+        #region Private
+
+        private CartModel loadCart()
+        {
+            var cart = Session["_CART"] as CartModel;
+            if (null == cart)
+            {
+                Session["_CART"] = cart = new CartModel();
+            }
+            return cart;
+        }
+
+        private void saveCart(CartModel cart)
+        {
+            Session["_CART"] = cart;
         }
 
         private CartItemModel getCartItem(Guid productId)
@@ -49,5 +63,7 @@ namespace Mvc.Study.Beginner.Controllers
                 return cartItem;
             }
         }
+
+        #endregion
     }
 }
