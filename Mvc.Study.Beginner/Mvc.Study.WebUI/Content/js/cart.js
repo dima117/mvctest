@@ -3,8 +3,9 @@
 });
 
 function initCart() {
-    
-    var compiledTemplate = _.template($("script.x-tp-cart-summary").html());
+
+    var template = $("script.x-tp-cart-summary").html();
+    var compiledTemplate = _.template(template);
 
     function showCart(data) {
         var cartHtml = compiledTemplate(data);
@@ -14,7 +15,6 @@ function initCart() {
     function loadCart() {
         $.ajax({
             url: $('.x-cart').data('url-cart-summary'),
-            data: {},
             type: "GET",
             cache: false,
             success: showCart
@@ -27,7 +27,6 @@ function initCart() {
 
         $.ajax({
             url: self.data('url-cart-add'),
-            data: {},
             type: "GET",
             cache: false,
             success: showCart
