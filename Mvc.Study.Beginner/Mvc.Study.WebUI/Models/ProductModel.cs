@@ -13,10 +13,5 @@ namespace Mvc.Study.Beginner.Models
 		public string Description { get; set; }
 
 		public string FullDescription { get; set; }
-
-		public string DisplayPrice
-		{
-			get { return Price.ToString("C"); }
-		}
 	}
 }

@@ -17,8 +17,9 @@ namespace Mvc.Study.Beginner
             // CSS
             bundles.Add(
                 new StyleBundle("~/Content/css").Include(
-					"~/Content/css/bootstrap.min.css",
-                    "~/Content/css/site.css"));
+					"~/Content/css/site.css",
+                    "~/Content/css/bootstrap.min.css",
+                    "~/Content/css/font-awesome.min.css"));
         }
     }
 }
