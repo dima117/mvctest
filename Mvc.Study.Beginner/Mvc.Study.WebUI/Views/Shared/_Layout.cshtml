@@ -32,7 +32,9 @@
                 <a class="btn btn-primary btn-lg btn-block" href="#">
                     <i class="fa fa-magic"></i> Оформить заказ
                 </a>
-                <div class="x-cart help-block" data-url-cart-summary="@Url.Action("GetCartSummary", "Cart")"></div>
+                <div class="x-cart help-block" data-url-cart-summary="@Url.Action("GetCartSummary", "Cart")">
+                    <i class="fa fa-refresh fa-spin"></i> Загрузка корзины
+                </div>
             </div>
         </div>
 
@@ -64,9 +66,6 @@
 
     </div>
     
-    <script type="text/template" class="x-tp-cart-loading">
-        <i class="fa fa-refresh fa-spin"></i> Идет обновление корзины
-    </script>
     <script type="text/template" class="x-tp-cart-summary">
         В корзине <b><%= TotalAmount %></b> товаров на <b><%= TotalPrice %></b> <i class="fa fa-rub"></i>
     </script>
