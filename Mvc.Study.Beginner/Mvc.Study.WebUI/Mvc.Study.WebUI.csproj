@@ -158,7 +158,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\MenuItems.cshtml" />
+    <Content Include="Views\Common\MenuItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\ContentPage.cshtml" />
@@ -167,7 +167,7 @@
     <Content Include="Views\Common\Error404.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\CatalogSections.cshtml" />
+    <Content Include="Views\Common\CatalogSections.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Catalog\Section.cshtml" />

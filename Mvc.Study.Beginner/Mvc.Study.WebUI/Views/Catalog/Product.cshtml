@@ -1,5 +1,10 @@
 ﻿@model Mvc.Study.Beginner.Models.ProductModel
 
+@{		
+    ViewBag.Title = Model.Name;		
+    Layout = "~/Views/Shared/_Layout.cshtml";		
+}		
+
 <h1>@Model.Name</h1>
 <p>
 	@Model.Price <i class="fa fa-rub"></i>

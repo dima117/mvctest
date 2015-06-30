@@ -36,7 +36,7 @@ namespace Mvc.Study.Beginner.Controllers
         {
 			using (var db = new TestDbContext())
 			{
-				var product = db.Products.FirstOrDefault(p => p.Id == id &&  p.CatalogSection.UrlCode == urlCode);
+				var product = db.Products.FirstOrDefault(p => p.Id == id &&  p.Id == id);
 
 				// 404
 				if (null == product)
