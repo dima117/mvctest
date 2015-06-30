@@ -9,6 +9,7 @@ namespace Mvc.Study.Beginner
         public static void RegisterMaps()
         {
             Mapper.CreateMap<Product, ProductModel>();
+            Mapper.CreateMap<Product, ProductListItemModel>();
             Mapper.CreateMap<Product, CartItemModel>();
 
             Mapper.CreateMap<ContentPage, ContentPageModel>();

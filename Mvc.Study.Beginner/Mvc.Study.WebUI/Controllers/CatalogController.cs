@@ -22,7 +22,13 @@ namespace Mvc.Study.Beginner.Controllers
 				    throw new HttpException(404, string.Empty);
 			    }
 
-                return View(Mapper.Map<CatalogSectionModel>(section));
+		        var model = Mapper.Map<CatalogSectionModel>(section);
+		        model.Products = db.Products
+		                           .Where(p => p.CatalogSection.UrlCode == urlCode)
+		                           .Select(Mapper.Map<ProductListItemModel>)
+		                           .ToArray();
+
+		        return View(model);
 		    }
 	    }
 

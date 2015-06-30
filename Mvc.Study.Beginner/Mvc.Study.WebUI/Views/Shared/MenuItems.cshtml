@@ -1,0 +1,12 @@
+﻿@model Mvc.Study.Beginner.Models.MenuItemModel[]
+
+<ul class="nav nav-pills x-pagemenu">
+    
+    @foreach (var item in Model)
+    {
+	    <li data-pageid="@item.Id">
+		    <a href="@Url.Action("ContentPage", "Home", new { urlCode = item.UrlCode })">@item.MenuTitle</a>
+	    </li>
+    }
+
+</ul>

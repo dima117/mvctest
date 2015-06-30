@@ -8,6 +8,11 @@
 
 @Html.Raw(Model.ContentSecondary)
 
+@foreach (var product in Model.Products)
+{
+    @Html.Partial("ProductListItem", product)
+}
+
 @section _scripts {
 <script type="text/javascript">
 	$(function () {

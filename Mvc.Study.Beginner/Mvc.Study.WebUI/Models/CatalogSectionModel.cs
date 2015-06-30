@@ -14,5 +14,7 @@ namespace Mvc.Study.Beginner.Models
         public string ContentPrimary { get; set; }
 
         public string ContentSecondary { get; set; }
+
+        public ProductListItemModel[] Products { get; set; }
     }
 }

@@ -1,0 +1,18 @@
+﻿@model Mvc.Study.Beginner.Models.ProductListItemModel
+
+<div class="row">
+    <div class="col-md-3">
+        <a href="@Url.Action("Product", "Catalog", new { id = Model.Id })">@Model.Name</a>
+    </div>
+    <div class="col-md-7">
+        @Html.Raw(Model.Description)
+    </div>
+    <div class="col-md-1">
+        @Model.Price.ToString("F") <i class="fa fa-rub"></i>
+    </div>
+    <div class="col-md-1">
+        <a href="#" class="btn btn-primary btn-xs x-product" data-url-cart-add="@Url.Action("AddProduct", "Cart", new {productId = Model.Id})">
+            Купить
+        </a>
+    </div>
+</div>
