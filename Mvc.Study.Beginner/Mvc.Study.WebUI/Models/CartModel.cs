@@ -17,7 +17,7 @@ namespace Mvc.Study.Beginner
             if (null == newItem)
                 return;
 
-            var cartItem = _items.FirstOrDefault(i => i.Id != newItem.Id);
+            var cartItem = _items.FirstOrDefault(i => i.Id == newItem.Id);
 
             if(null == cartItem)
             {
@@ -44,7 +44,7 @@ namespace Mvc.Study.Beginner
             return new CartSummaryModel
                 {
                     TotalAmount = _items.Sum(i => i.Amount),
-                    TotalPrice = _items.Sum(i => i.Price*i.Amount)
+                    TotalCost = _items.Sum(i => i.Price*i.Amount)
                 };
         }
     }

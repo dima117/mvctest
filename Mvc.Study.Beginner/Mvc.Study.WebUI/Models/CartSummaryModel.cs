@@ -9,6 +9,6 @@ namespace Mvc.Study.Beginner
     public class CartSummaryModel
     {
         public int TotalAmount { get; set; }
-        public decimal TotalPrice { get; set; }
+        public decimal TotalCost { get; set; }
     }
 }

@@ -29,7 +29,7 @@
                 <div><b>+7 915 123 4567</b></div>
             </div>
             <div class="col-md-3">
-                <a class="btn btn-primary btn-lg btn-block" href="#">
+                <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("Checkout", "Cart")">
                     <i class="fa fa-magic"></i> Оформить заказ
                 </a>
                 <div class="x-cart help-block" data-url-cart-summary="@Url.Action("GetCartSummary", "Cart")">
@@ -67,7 +67,7 @@
     </div>
     
     <script type="text/template" class="x-tp-cart-summary">
-        В корзине <b><%= TotalAmount %></b> товаров на <b><%= TotalPrice %></b> <i class="fa fa-rub"></i>
+        В корзине <b><%= TotalAmount %></b> товаров на <b><%= TotalCost %></b> <i class="fa fa-rub"></i>
     </script>
 </body>
 </html>

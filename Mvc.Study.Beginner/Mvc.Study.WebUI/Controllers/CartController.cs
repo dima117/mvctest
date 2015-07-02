@@ -2,12 +2,25 @@
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
+using Mvc.Study.Beginner.Models;
 using Mvc.Study.Domain;
 
 namespace Mvc.Study.Beginner.Controllers
 {
     public class CartController : Controller
     {
+        public ActionResult Checkout()
+        {
+            var cart = loadCart();
+
+            var model = new CartCheckoutModel
+                {
+                    Items = cart.GetItems(),
+                    TotalCost = cart.GetSummary().TotalCost
+                };
+            return View(model);
+        }
+
         public JsonResult AddProduct(Guid productId)
         {
             var cart = loadCart();

@@ -101,6 +101,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\CartCheckoutModel.cs" />
     <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\CartSummaryModel.cs" />
@@ -186,6 +188,9 @@
     <Content Include="Views\Shared\ProductListItem.cshtml">
       <SubType>Code</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Checkout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
