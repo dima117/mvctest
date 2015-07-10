@@ -15,5 +15,9 @@ namespace Mvc.Study.Domain
 		public DbSet<CatalogSection> CatalogSections { get; set; }
 
 		public DbSet<Product> Products { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderItem> OrderItems { get; set; }
 	}
 }

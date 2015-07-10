@@ -7,6 +7,11 @@ namespace Mvc.Study.Beginner
     /// </summary>
     public class CartItemModel
     {
+        public CartItemModel()
+        {
+            Name = string.Empty;
+        }
+
         public Guid Id { get; set; }
 
         public string Name { get; set; }

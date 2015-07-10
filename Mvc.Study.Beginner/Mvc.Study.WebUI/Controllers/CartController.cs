@@ -2,23 +2,59 @@
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
+using Mvc.Study.Beginner.Core;
 using Mvc.Study.Beginner.Models;
 using Mvc.Study.Domain;
+using Mvc.Study.Domain.Model;
 
 namespace Mvc.Study.Beginner.Controllers
 {
     public class CartController : Controller
     {
+        [HttpGet]
         public ActionResult Checkout()
         {
             var cart = loadCart();
 
-            var model = new CartCheckoutModel
+            var model = new CheckoutModel
                 {
                     Items = cart.GetItems(),
                     TotalCost = cart.GetSummary().TotalCost
                 };
+
+            SessionHelper.Put(SessionHelper.CartItems, model.Items);
+
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Checkout(CheckoutModel model)
+        {
+            model.Items = SessionHelper.Get<CartItemModel[]>(SessionHelper.CartItems);
+
+            var successModel = new CheckoutSuccessModel();
+
+            using (var db = new TestDbContext())
+            {
+                var order = new Order
+                    {
+                        OrderDate = DateTime.Now,
+                        TotalCost = model.Items.Sum(i => i.Cost),
+                        Fio = model.Customer.Fio,
+                        Email = model.Customer.Email,
+                        Phone = model.Customer.Phone,
+                        DeliveryAddress = model.Customer.DeliveryAddress,
+                        IsDeliveryRequired = model.Customer.IsDeliveryRequired
+                    };
+                order = db.Orders.Add(order);
+
+                successModel.OrderId = order.Id;
+                successModel.OrderCost = order.TotalCost;
+
+                db.SaveChanges();
+            }
+
+            return View("CheckoutSuccess", successModel);
         }
 
         public JsonResult AddProduct(Guid productId)

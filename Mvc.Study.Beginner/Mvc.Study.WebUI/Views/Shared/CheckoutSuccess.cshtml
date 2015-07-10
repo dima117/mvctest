@@ -1,0 +1,10 @@
+﻿@model Mvc.Study.Beginner.Models.CheckoutSuccessModel
+
+@{
+    ViewBag.Title = "CheckoutSuccess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Спасибо за заказ</h1>
+<p>Оформлен заказа №@Model.OrderId на сумму @Model.OrderCost.ToString("N2") руб.</p>
+<p>ТЕкст, поясняющий, что делать дальше.</p>

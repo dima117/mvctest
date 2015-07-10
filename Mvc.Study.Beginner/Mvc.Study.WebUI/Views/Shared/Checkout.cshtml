@@ -1,66 +1,79 @@
-﻿@model Mvc.Study.Beginner.Models.CartCheckoutModel
+﻿@model Mvc.Study.Beginner.Models.CheckoutModel
 
 @{
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>В корзине</h1>
-<table class="table table-bordered">
-    <colgroup>
-        <col/>
-        <col style="width: 75px;"/>
-        <col style="width: 75px;"/>
-        <col style="width: 75px;"/>
-    </colgroup>
+<h1>Оформление заказа</h1>
+
+<blockquote>
+
+    <table class="table table-bordered">
+        <thead>
+            <colgroup>
+                <col/>
+                <col style="width: 75px;"/>
+                <col style="width: 75px;"/>
+                <col style="width: 75px;"/>
+            </colgroup>
+            <tr>
+                <th>Название</th>
+                <th>Цена</th>
+                <th class="text-nowrap">Кол-во</th>
+                <th>Стоимость</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td class="text-right">@item.Price.ToString("N2")</td>
+                    <td>
+                        @Html.TextBoxFor(m => item.Amount, new{ @class = "form-control" })
+                    </td>
+                    <td class="text-right">@item.Cost.ToString("N2")</td>
+                </tr>
+            }
     
-    <tr>
-        <th>Название</th>
-        <th>Цена</th>
-        <th>Количество</th>
-        <th>Стоимость</th>
-    </tr>
-    
-    @foreach (var item in Model.Items)
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right"><b>Итого</b></td>
+                <td class="text-right"><b>@Model.TotalCost.ToString("N2")</b></td>
+            </tr>
+        </tfoot>
+    </table>
+</blockquote>
+
+<blockquote>
+
+    @using (Html.BeginForm())
     {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Price</td>
-            <td>@item.Amount</td>
-            <td class="text-right">@item.Cost <i class="fa fa-rub"></i></td>
-        </tr>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Customer.Fio, "ФИО")
+            @Html.TextBoxFor(m => m.Customer.Fio, new{ @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Customer.Email, "Email")
+            @Html.TextBoxFor(m => m.Customer.Email, new{ @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Customer.Phone, "Телефон")
+            @Html.TextBoxFor(m => m.Customer.Phone, new{ @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Customer.IsDeliveryRequired, "Нужна доставка")
+            @Html.CheckBoxFor(m => m.Customer.IsDeliveryRequired)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Customer.DeliveryAddress, "Адрес доставки")
+            @Html.TextBoxFor(m => m.Customer.DeliveryAddress, new{ @class = "form-control" })
+        </div>
+    
+        <input type="submit" class="btn btn-default" value="Оформить заказ" />
     }
-    
-    <tr>
-        <td colspan="3" class="text-right"><b>Итого</b></td>
-        <td class="text-right"><b>@Model.TotalCost</b> <i class="fa fa-rub"></i></td>
-    </tr>
 
-</table>
-
-<h1>Данные покупателя</h1>
-@using (Html.BeginForm())
-{
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Fio, "ФИО")
-        @Html.TextBoxFor(m => m.Customer.Fio, new{ @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Email, "Email")
-        @Html.TextBoxFor(m => m.Customer.Email, new{ @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Phone, "Телефон")
-        @Html.TextBoxFor(m => m.Customer.Phone, new{ @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.IsDeliveryRequired, "Нужна доставка")
-        @Html.CheckBoxFor(m => m.Customer.DeliveryAddress)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.DeliveryAddress, "Адрес доставки")
-        @Html.TextBoxFor(m => m.Customer.DeliveryAddress, new{ @class = "form-control" })
-    </div>
-    
-    <input type="submit" class="btn btn-default" value="Оформить заказ" />
-}
+</blockquote>

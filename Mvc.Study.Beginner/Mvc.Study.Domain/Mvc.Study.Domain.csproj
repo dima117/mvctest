@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Model\CatalogSection.cs" />
     <Compile Include="Model\ContentPage.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderItem.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDbContext.cs" />
