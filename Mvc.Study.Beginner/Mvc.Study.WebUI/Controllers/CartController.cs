@@ -18,8 +18,7 @@ namespace Mvc.Study.Beginner.Controllers
 
             var model = new CheckoutModel
                 {
-                    Items = cart.GetItems(),
-                    TotalCost = cart.GetSummary().TotalCost
+                    Items = cart.GetItems()
                 };
 
             SessionHelper.Put(SessionHelper.CartItems, model.Items);
@@ -36,8 +35,13 @@ namespace Mvc.Study.Beginner.Controllers
 
             for (var i = 0; i < items.Length; i++)
             {
-                items[i].Amount = model.Items[i].Amount;
+                var amount = model.Items[i].Amount;
+                model.Items[i] = Mapper.Map<CartItemModel>(items[i]);
+                model.Items[i].Amount = amount;
             }
+
+            if (!ModelState.IsValid)
+                return View(model);
 
             CheckoutSuccessModel successModel;
 

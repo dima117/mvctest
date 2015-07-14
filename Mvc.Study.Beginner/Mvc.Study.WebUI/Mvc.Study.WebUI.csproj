@@ -98,6 +98,8 @@
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Core\Attributes\ContactsValidationAttribute.cs" />
+    <Compile Include="Core\Attributes\DeliveryValidationAttribute.cs" />
     <Compile Include="Core\SessionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

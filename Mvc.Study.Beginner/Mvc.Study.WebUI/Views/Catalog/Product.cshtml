@@ -7,7 +7,7 @@
 
 <h1>@Model.Name</h1>
 <p>
-	@Model.Price <i class="fa fa-rub"></i>
+	@Model.Price.ToString("N2") <i class="fa fa-rub"></i>
 </p>
 <p>
     <a href="#" class="btn btn-primary btn-lg x-product" data-url-cart-add="@Url.Action("AddProduct", "Cart", new {productId = Model.Id})">
