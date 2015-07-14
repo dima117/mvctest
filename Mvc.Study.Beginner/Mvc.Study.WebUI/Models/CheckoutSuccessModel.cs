@@ -1,8 +1,12 @@
-﻿namespace Mvc.Study.Beginner.Models
+﻿using System;
+
+namespace Mvc.Study.Beginner.Models
 {
     public class CheckoutSuccessModel
     {
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
+
+        public DateTime OrderDate { get; set; }
 
         public decimal OrderCost { get; set; }
     }

@@ -30,26 +30,46 @@ namespace Mvc.Study.Beginner.Controllers
         [HttpPost]
         public ActionResult Checkout(CheckoutModel model)
         {
-            model.Items = SessionHelper.Get<CartItemModel[]>(SessionHelper.CartItems);
+            var orderId = Guid.NewGuid();
 
-            var successModel = new CheckoutSuccessModel();
+            var items = SessionHelper.Get<CartItemModel[]>(SessionHelper.CartItems);
+
+            for (var i = 0; i < items.Length; i++)
+            {
+                items[i].Amount = model.Items[i].Amount;
+            }
+
+            CheckoutSuccessModel successModel;
 
             using (var db = new TestDbContext())
             {
                 var order = new Order
                     {
+                        Id = orderId,
                         OrderDate = DateTime.Now,
-                        TotalCost = model.Items.Sum(i => i.Cost),
                         Fio = model.Customer.Fio,
                         Email = model.Customer.Email,
                         Phone = model.Customer.Phone,
                         DeliveryAddress = model.Customer.DeliveryAddress,
                         IsDeliveryRequired = model.Customer.IsDeliveryRequired
                     };
-                order = db.Orders.Add(order);
+                db.Orders.Add(order);
 
-                successModel.OrderId = order.Id;
-                successModel.OrderCost = order.TotalCost;
+                foreach (var cartItem in items)
+                {
+                    var orderItem = Mapper.Map<OrderItem>(cartItem);
+                    orderItem.Id = Guid.NewGuid();
+                    orderItem.OrderId = orderId;
+
+                    db.OrderItems.Add(orderItem);
+                }
+
+                successModel = new CheckoutSuccessModel
+                    {
+                        OrderId = orderId,
+                        OrderDate = order.OrderDate,
+                        OrderCost = items.Sum(i => i.Cost)
+                    };
 
                 db.SaveChanges();
             }

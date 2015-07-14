@@ -12,6 +12,10 @@ namespace Mvc.Study.Beginner
             Mapper.CreateMap<Product, ProductListItemModel>();
             Mapper.CreateMap<Product, CartItemModel>();
 
+            Mapper.CreateMap<CartItemModel, CartItemModel>();
+            Mapper.CreateMap<CartItemModel, OrderItem>()
+                .ForMember(o => o.ProductId, o => o.MapFrom(y => y.Id));
+
             Mapper.CreateMap<ContentPage, ContentPageModel>();
             Mapper.CreateMap<CatalogSection, CatalogSectionModel>();
         }

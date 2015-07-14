@@ -1,25 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 
 namespace Mvc.Study.Domain.Model
 {
     public class OrderItem
     {
-        [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        [Required]
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
 
-        [Required]
-        public int ProuctId { get; set; }
+        public Guid ProductId { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        [Required]
         public decimal Price { get; set; }
 
-        [Required]
         public int Amount { get; set; }
     }
 }
